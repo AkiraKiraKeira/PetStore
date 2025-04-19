@@ -10,7 +10,7 @@ class Item(models.Model):
     created_date = models.DateTimeField(
             default=timezone.now)
     price = models.IntegerField()
-    promo = models.BooleanField()
+    promo = models.BooleanField(default=False)
 
     def publish(self):
         self.published_date = timezone.now()

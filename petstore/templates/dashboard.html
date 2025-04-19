@@ -1,15 +1,22 @@
 {% extends "base.html" %}
+
 {% block title %}
  Registration
 {% endblock %}
 {% block content %}
-Hello, {{ user.username|default:"Guest" }}!
+<!--<h3>Гав! Мяу! Привіт, {{ user.username|default:"Друже" }}!</h3>-->
+<h3 style="color: #c7dbe2;">Гав! Мяу! Привіт, {{ user.username|default:"Друже" }}!</h3>
 <hr />
     {% if user.is_authenticated %}
         {% include "registration/_logout.html" %}
         <a href="{% url 'password_change' %}">Change password</a>
     {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'sign_up' %}">Sign up</a>
+
+<a href="{% url 'login' %}" style="display: inline-block; padding: 10px 20px; font-size: 16px; font-family: 'DM Sans', sans-serif; color: white; background-color: #027a76; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 15px; text-decoration: none;">Login</a>
+<a href="{% url 'sign_up' %}" style="display: inline-block; padding: 10px 20px; font-size: 16px; font-family: 'DM Sans', sans-serif; color: white; background-color: #45b73e; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 15px; text-decoration: none;">Sign Up</a>
+
+<!--     <a href="{% url 'login' %}" class="btn btn-primary">Login</a>-->
+<!--    <a href="{% url 'sign_up' %}" class="btn btn-success">Sign up</a>-->
     {% endif %}
+
 {% endblock %}
